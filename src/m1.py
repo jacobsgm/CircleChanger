@@ -340,7 +340,7 @@ class CircleChanger(object):
             :type times_to_swell_or_shrink:  int
         """
         ################################################################
-        # TODO: 5.
+        # DONE: 5.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the  run_test_swell_or_shrink_repeatedly  function
         #   (below).  Third, implement and test this method.
@@ -379,7 +379,7 @@ class CircleChanger(object):
             :rtype CircleChanger
         """
         ################################################################
-        # TODO: 6.
+        # DONE: 6.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the   run_test_swallow   function (below).
         #   Third, implement and test this method.
@@ -389,6 +389,15 @@ class CircleChanger(object):
         #   the center and radius of the new CircleChanger.
         #   NO CREDIT if you use the distance formula here.
         ################################################################
+
+        radius = (self.get_distance_from(other_circle_changer.circle.center))/2
+        a = self.circle.center
+        b = other_circle_changer.circle.center
+        c = a.halfway_to(b)
+        d = self.colors + other_circle_changer.colors
+        fill_color = 'red'
+        newCircleChanger = CircleChanger(c.x,c.y,radius,fill_color,d)
+        return newCircleChanger
 
     def change_color(self, index_of_color):
         """
