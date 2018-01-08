@@ -419,11 +419,14 @@ class CircleChanger(object):
             :type index_of_color: int
         """
         ################################################################
-        # TODO: 7.
+        # DONE: 7.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the   run_test_change_color   function (below).
         #   Third, implement and test this method.
         ################################################################
+
+        a = self.colors[index_of_color]
+        self.circle.fill_color = a
 
     def change_to_original_color(self):
         """
@@ -441,6 +444,8 @@ class CircleChanger(object):
         #   Second, READ the   run_test_change_to_original_color   function
         #   (below).  Third, implement and test this method.
         ################################################################
+
+        self.change_to_original_color()
 
     def change_to_next_color_in_tuple(self):
         """
