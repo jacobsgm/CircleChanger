@@ -26,6 +26,7 @@ def main():
     That is, a  TEST   function will not be called
     until you begin work on the code that it is testing.
     """
+    '''
     if m1_tests.is_implemented('__init__', 10):
         run_test_init()
     if m1_tests.is_implemented('get_distance_from'):
@@ -40,6 +41,7 @@ def main():
         run_test_change_color()
     if m1_tests.is_implemented('change_to_original_color'):
         run_test_change_to_original_color()
+        '''
     if m1_tests.is_implemented('change_to_next_color_in_tuple'):
         run_test_change_to_next_color_in_tuple()
 
@@ -105,7 +107,9 @@ class CircleChanger(object):
 
         self.circle= rg.Circle(rg.Point(x,y),radius)
         self.circle.fill_color = fill_color
+        self.original_color = fill_color
         self.colors = colors
+        self.count = 0
 
     def __repr__(self):
         """
@@ -439,13 +443,13 @@ class CircleChanger(object):
                was constructed.
         """
         ################################################################
-        # TODO: 8.
+        # DONE: 8.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the   run_test_change_to_original_color   function
         #   (below).  Third, implement and test this method.
         ################################################################
 
-        self.change_to_original_color()
+        self.circle.fill_color = self.original_color
 
     def change_to_next_color_in_tuple(self):
         """
@@ -480,11 +484,20 @@ class CircleChanger(object):
         fill color have no effect on or interaction with this method.
         """
         ################################################################
-        # TODO: 9.
+        # DONE: 9.
         #   First, READ the doc-string (specification) above.
         #   Second, READ the   run_test_change_to_next_color_in_tuple
         #   function (below).  Third, implement and test this method.
         ################################################################
+
+
+        if (self.count == len(self.colors)):
+            self.circle.fill_color = self.colors[0]
+            self.count = 1
+
+        else:
+            self.circle.fill_color = self.colors[self.count]
+            self.count += 1
 
 
 ########################################################################
